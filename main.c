@@ -10,7 +10,7 @@ int main()
 
     */
 
-    printf("Hello world!");
+    printf("1\t2\t3\n4\t5\t6");
 
     return 0;
 }
