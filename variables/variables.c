@@ -3,11 +3,45 @@
 #include <unistd.h>
 #include <sys/utsname.h>
 
-int variables(){
+#include <stdio.h>
 
-    int age;
-    float salary;
+int variables() {
+    // Declaration: type variable_name;
+    int age;              // Declares an integer variable named 'age'
+    float salary;         // Declares a float variable named 'salary'
+    double preciseValue;  // Declares a double variable
+    char initial;         // Declares a character variable
+
+    // Initialization: assigning an initial value
+    age = 30;                       // Assigns 30 to 'age'
+    salary = 55000.75f;             // Assigns 55000.75 to 'salary'. The 'f' makes it a float literal.
+                                    // Without 'f', 55000.75 would be a double by default.
+    preciseValue = 12345.67890123;  // Assigns a double value
+    initial = 'J';                  // Assigns the character 'J' to 'initial'. Note single quotes.
+
+    // Declaration and Initialization can be done in one step
+    int year = 2025;
+    char grade = 'A';
+
+    printf("Age: %d\n", age);                     // %d is a format specifier for integers
+    printf("Salary: %f\n", salary);               // %f is for floats (and often doubles for printf)
+    printf("More Precise Value: %lf\n", preciseValue); // %lf is typically for doubles with printf
+    printf("Initial: %c\n", initial);             // %c is for characters
+    printf("Year: %d, Grade: %c\n", year, grade);
+
+    // Example of void in a function declaration (prototype)
+    void printMessage(void); // Declares a function that takes no arguments and returns nothing
+
+    printMessage(); // Calls the function
+
+    return 0;
 }
+
+
+void printMessage(void){
+    printf("This message comes from a void func!\n");
+}
+
 int add(int a, int b);
 
 void info(const struct utsname *);
@@ -36,22 +70,23 @@ void info(const struct utsname *);
 
 
 int main(){
-    pid_t pid = getpid();
-    printf("My PID is %d\n", pid);
+    // pid_t pid = getpid();
+    // printf("My PID is %d\n", pid);
 
 
-    struct utsname sys_info;
-    if(uname(&sys_info) == 0){
-        // printf("System: %s %s %s\n",
-        //              info.sysname,
-        //              info.release,
-        //              info.machine
-        // );
-        info(&sys_info);
+    // struct utsname sys_info;
+    // if(uname(&sys_info) == 0){
+    //     // printf("System: %s %s %s\n",
+    //     //              info.sysname,
+    //     //              info.release,
+    //     //              info.machine
+    //     // );
+    //     info(&sys_info);
 
-    }else {
-          perror("uname");
-    }
+    // }else {
+    //       perror("uname");
+    // }
+     variables();
 
  return 0;
 }
