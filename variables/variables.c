@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 
+void printMessage();
 int variables() {
     // Declaration: type variable_name;
     int age;              // Declares an integer variable named 'age'
@@ -30,7 +31,7 @@ int variables() {
     printf("Year: %d, Grade: %c\n", year, grade);
 
     // Example of void in a function declaration (prototype)
-    void printMessage(void); // Declares a function that takes no arguments and returns nothing
+     // printMessage(); // Declares a function that takes no arguments and returns nothing
 
     printMessage(); // Calls the function
 
@@ -38,7 +39,7 @@ int variables() {
 }
 
 
-void printMessage(void){
+void printMessage(){
     printf("This message comes from a void func!\n");
 }
 
@@ -67,7 +68,24 @@ void info(const struct utsname *);
 //   return 0;
 // }
 
+int greet(){
+    int age;
+    char name[50];
 
+    printf("Enter your name: ");
+    scanf("%s", name);
+
+    printf("Enter Your age: ");
+    scanf("%d",&age);
+
+
+    printf("Hello, %s! You are %d years old\n", name,age);
+
+    return 0;
+}
+
+
+float add2(int x, int y);
 
 int main(){
     // pid_t pid = getpid();
@@ -86,9 +104,17 @@ int main(){
     // }else {
     //       perror("uname");
     // }
-     variables();
+     // variables();
+     // greet();
+
+     float data = add2(10, 20);
+     printf("This is your data %f\n", data);
 
  return 0;
+}
+
+float add2(int x, int y){
+    return (float)(x + y);
 }
 
 void info(const struct utsname *data) {
